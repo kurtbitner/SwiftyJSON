@@ -116,7 +116,8 @@ public class LclJSONSerialization {
         
         let count = jsonStr.lengthOfBytes(using: .utf8)
         let bufferLength = count+1 // Allow space for null terminator
-        var utf8: [CChar] = Array<CChar>(repeating: 0, count: bufferLength)
+        var utf8: [CChar] = Array<CChar>()
+        utf8.reserveCapacity(bufferLength)
         if !jsonStr.getCString(&utf8, maxLength: bufferLength, encoding: .utf8) {
             // throw something?
         }
