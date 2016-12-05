@@ -553,7 +553,9 @@ public protocol JSONSubscriptType {
 }
 
 extension Int: JSONSubscriptType {
-    public var JSONKey:JSONKey {
+   
+
+    public var jsonKey:JSONKey {
         return JSONKey.index(self)
     }
 }
